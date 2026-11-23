@@ -13,7 +13,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Change YOUR_PASSWORD to your PostgreSQL password
 import os                         # lets Python read settings from the computer
 from dotenv import load_dotenv    # reads the .env file
 
@@ -52,7 +51,7 @@ def get_one_customer(customer_id: int):
     return row
 
 
-@app.post("/customers")                       # add a new customer
+                     # add a new customer
 @app.post("/customers", status_code=201)      # 201 = "created"
 def add_customer(customer: CustomerIn):
     name = customer.name.strip()               # remove spaces at start and end
